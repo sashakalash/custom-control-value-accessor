@@ -1,0 +1,18 @@
+<label for="counterInput">{{ label }}</label>
+<div class="wrapper">
+  <div class="icon-wrapper">
+    <img [src]="MINUS_IMG_SRC"
+         alt="minus-icon"
+         (click)="onClick(DECREASE)" />
+  </div>
+  <input #counterInput
+         [placeholder]="placeholder"
+         title="counter"
+         (input)="onInput(counterInput.value)"
+         type="number"/>
+  <div class="icon-wrapper">
+    <img [src]="PLUS_IMG_SRC"
+         alt="plus-icon"
+         (click)="onClick(INCREASE)" />
+  </div>
+</div>
