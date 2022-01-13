@@ -11,7 +11,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MockComponent(CounterComponent)
+        CounterComponent
       ],
       imports: [
         BrowserModule,
@@ -52,12 +52,14 @@ describe('AppComponent', () => {
     it('should change counter component input value through the app formControl setting value', fakeAsync(() => {
 
 
-      appComponent.onInput('11');
+      appComponent.counterCtrl.setValue('11');
       fixture.detectChanges();
       counterFixture.detectChanges();
+      console.log(counterFixture.debugElement.nativeElement)
+
       tick();
 
-      expect(counterComponent.value).toEqual(11);
+      expect(counterComponent.writeValue).toHaveBeenCalled();
 
     }));
   })
